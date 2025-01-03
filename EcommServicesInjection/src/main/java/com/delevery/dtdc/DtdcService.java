@@ -54,7 +54,7 @@ public class DtdcService {
 		String picodeState = String.join(", ", addressDetails.get(3), addressDetails.get(2));
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("_______________________________________________________________________________________\n");
+		sb.append(" _______________________________________________________________________________________\n");
         sb.append("!                                                                                       !\n"); 
         sb.append("|                     " + BOLD + "BILLING DETAILS" + RESET + "                                                   |\n");
         sb.append("!_______________________________________________________________________________________!\n");
@@ -66,8 +66,10 @@ public class DtdcService {
         sb.append(String.format("| Address                      |     %-50s |\n", fullAddress));
         sb.append(String.format("|                              |     %-50s |\n", picodeState ));
         sb.append(String.format("| Date                         |     %-50s |\n", getCurrentDateTime()));
-         sb.append("!_______________________________________________________________________________________!\n");
-         System.out.print(sb +"\nThankyou shopping with "+serviceProvider.getService_Provider_Name());
+        sb.append("|'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''|\n");
+        sb.append(String.format("|                       Thankyou shopping with %-40s |\n", serviceProvider.getService_Provider_Name()));
+        sb.append("!.......................................................................................!\n");
+        System.out.println(sb.toString());
 	}
 	public String getCurrentDateTime() {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy h:mm:ss a");

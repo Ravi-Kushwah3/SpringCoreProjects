@@ -39,15 +39,16 @@ public class EcommTest {
 	public void doShopping() {
 		try {
 			List<String> produsctList = null;
+			boolean paymentStatus = false;
 			System.out.println("Choose Service Provider\n" + "1. Flipkart\n" + "2. Amazone");
 			String serviceProvider = scanner.nextLine();
 			switch (Integer.parseInt(serviceProvider)) {
 			case 1:
-				System.out.println("Go with flipkart");
+				System.out.println("WELCOME TO FLIPKART");
 				FlipkartImpl flpkart = utility.getFlipkart();
 				produsctList = flpkart.selectProduct(scanner);
 				if (produsctList.size() > 0) {
-					boolean paymentStatus = flpkart.buyProduct(produsctList, scanner);
+					paymentStatus = flpkart.buyProduct(produsctList, scanner);
 					if (paymentStatus) {
 						System.out.println("Going to delever product");
 						System.out.println("Select way of delevered product.\n" + "1.BlueDart\n" + "2.DTDC");
@@ -60,7 +61,6 @@ public class EcommTest {
 									BlueDart blueDart = utility.getBluedart();
 									blueDart.deleverProduct(produsctList, scanner, utility, service_provider);
 									break;
-
 								} else if (Integer.parseInt(medium) == 2) {
 									DtdcService dtdc = utility.getDtdc();
 									dtdc.deleverProduct(produsctList, scanner, utility, service_provider);
@@ -85,7 +85,7 @@ public class EcommTest {
 				AmazoneImpl amazone = utility.getAmazone();
 				produsctList = amazone.selectProduct(scanner);
 				if (produsctList.size() > 0) {
-					boolean paymentStatus = amazone.buyProduct(produsctList, scanner);
+					paymentStatus = amazone.buyProduct(produsctList, scanner);
 					if (paymentStatus) {
 						System.out.println("Going to delever product");
 						System.out.println("Select way of delevered product.\n" + "1.BlueDart\n" + "2.DTDC");
@@ -115,7 +115,7 @@ public class EcommTest {
 						System.out.println("PayMent not happened.");
 					}
 				} else {
-					System.out.println("No item added in cart.");
+					System.out.println("Enter correct option.");
 				}
 				break;
 			default:

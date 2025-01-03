@@ -85,7 +85,6 @@ public class BeansUtility {
 	}
 
 	public void setBeansUtility(BeansUtility beansUtility) {
-		beansUtility = (BeansUtility) getContainer().getBean("utility");
 		this.beansUtility = beansUtility;
 	}
 
