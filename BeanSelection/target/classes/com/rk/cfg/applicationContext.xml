@@ -18,4 +18,7 @@
 	<constructor-arg name="second" value="55"/>
 	</bean>
 	<bean id="ldt2" class="java.time.LocalDateTime" factory-method="now"/>
+	<bean id="p1" class="com.rk.bean.Printer" factory-method="getInstanse"/>
+	<bean id="p2" class="com.rk.bean.Printer" factory-method="getInstanse"/>
+	
 </beans>

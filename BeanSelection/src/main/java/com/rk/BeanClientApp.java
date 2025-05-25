@@ -2,6 +2,7 @@ package com.rk;
 
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
+import com.rk.bean.Printer;
 import com.rk.bean.SeasonFinder;
 
 public class BeanClientApp {
@@ -14,6 +15,11 @@ public class BeanClientApp {
 			SeasonFinder sf = (SeasonFinder) obj;
 			String result = sf.findSeason("Ravi");
 			System.out.println(result);
+			Printer pobj1 = ctx.getBean("p1",Printer.class);
+			Printer pobj2 = ctx.getBean("p2",Printer.class);
+			
+			System.out.println("pobj1 == pobj2? "+(pobj1 == pobj2));
+
 		} catch (Exception e) {
 			System.out.println(e);
 		} finally {
